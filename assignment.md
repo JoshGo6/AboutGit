@@ -1,10 +1,14 @@
 # How are `git push`, `git fetch`, and `git pull` used?
 
-In modern software development and documentation, git is most often used for source control. While git provides many commands and options, the following three basic operations are used repeatedly:
+In modern software development and documentation, git is most often used for source control. This system is based on two concepts: repositories and branches. A *repository* is a collection of files. A *branch* is a version of those files that can be edited independently of other versions -- of other branches of those files. A repository holds one or more branches. Often, though, it contains many branches, allowing different users to edit different versions of the files at the same time.
+
+Developers (and writers) edit these branches on their local machines, since each developer contains a copy of the repository on their local machine. These repositories are *local repositories*, and the branches that developers edit in their local repositories are *local branches*. When developers are ready, they share their work so it is accessible to other users, by uploading a local branch to a repository accessible by other developers in their company. This repository that is accessible by others is the *remote repository*, and it contains the *remote branches*. Developers frequently download work from the remote repository and upload work to the remote repository. In this way, many different developers can work together. 
+
+While git provides many commands and options, the following three basic operations are used repeatedly:
 
 - [`git push`](#git-push): Sends changes from a local branch to a remote repo.
 - [`git fetch`](#git-fetch): Receives information from a remote repo about the current state of its branches.
-- [`git pull`](#git-pull): Receives information from a remote repo about the current branch, and updates your local branch so it matches the remote branch.
+- [`git pull`](#git-pull): Receives information from a remote repo about the current branch, and updates your local branch so that it matches the remote branch.
 
 The following sections describe each of these operations in detail:
 
