@@ -11,7 +11,7 @@ While git provides many commands and options, you will use the following operati
 - [`git merge`](#git-merge): Inserts material from one branch into another branch.
 - [`git pull`](#git-pull): Performs `git fetch` and then performs a `git merge` from the remote branch into your local branch.
 
-The following sections describe each of these operations in detail:
+The following sections briefly describe each of these operations. For more detailed options for each of these operations, please see the [official git documentation online](https://git-scm.com/doc). Also, note that in the following sections, we assume that you have set up your local branches to track remote branches. For more information on setting up tracking branches, see [this page](https://www.git-tower.com/learn/git/faq/track-remote-upstream-branch/).
 
 ## `git push`
 
@@ -22,6 +22,7 @@ The following sections describe each of these operations in detail:
 `git fetch` again takes our current branch, and checks to see if there is a tracking branch. If so, it looks for changes in the remote branch, and pulls them into the tracking branch. It does not change your local branch. To do that, you'll need to do `git merge origin/master` (for the "master" branch) to merge those changes into your branch - probably also called "master".
 
 ## `git merge`
+
 
 
 ## `git pull`
