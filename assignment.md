@@ -15,7 +15,13 @@ The following sections briefly describe each of these operations. For more detai
 
 ## `git push`
 
-`git push` takes our current branch, and checks to see whether or not there is a tracking branch for a remote repository connected to it. If so, our changes are taken from our branch and pushed to the remote branch. This is how code is shared with a remote repository, you can think of it as "make the remote branch resemble my local branch". This will fail if the remote branch has diverged from your local branch: if not all the commits in the remote branch are in your local branch. When this happens, your local branch needs to be synchronized with the remote branch with git pull or git fetch and git merge.
+`git push` uploads changes from your local branch to the remote branch so that they are identical. Since the remote branch is in the remote repo (which everyone has access to) using `git push` shares your work with everyone else. Note that this operation requires your local branch to contain all of the commits that the remote branch contains *before* running `git push`, and will fail if this condition is not met. If the remote branch contains commits that your local branch does not yet contain, you have two choices: (a) first run [`git pull`](#git-pull), or (b) first run [`git fetch`](#git-fetch) followed by [`git merge`](#git-merge). After this, you can run `git push`.
+
+**Syntax:** To upload changes from your local branch `hotfix` to the remote branch `hotfix` in the remote repository named `origin`, run
+
+```
+git push origin hotfix
+```
 
 ## `git fetch`
 
