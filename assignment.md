@@ -25,7 +25,13 @@ git push origin hotfix
 
 ## `git fetch`
 
-`git fetch` again takes our current branch, and checks to see if there is a tracking branch. If so, it looks for changes in the remote branch, and pulls them into the tracking branch. It does not change your local branch. To do that, you'll need to do `git merge origin/master` (for the "master" branch) to merge those changes into your branch - probably also called "master".
+`git fetch` downloads information about the current state of the remote repository, including all of the new commits and branches it contains. This operation is always safe to run, however, because it does not *change* your local branch. To update your local branch so it matches the remote branch, first run `git fetch` and then run [`git merge`](#git-merge).
+
+**Syntax:** To download information from the remote repository named `origin`, run
+
+```
+git fetch origin
+```
 
 ## `git merge`
 
