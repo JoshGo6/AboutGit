@@ -53,7 +53,7 @@ git merge hotfix
 
 Frequently you will want to perform a a [`git fetch`](#git-fetch) immediately followed by a [`git merge`](#git-merge), which is exactly what `git pull` does. The advange of first performing a `git fetch` and *then* performing a `git merge` is that you can run `git status` between those two operations to determine whether or not running `git merge` will result in a merge conflict. (A merge conflict occurs during `git merge` when git cannot automatically integrate the changes introduced by the merge, because the two branches contain commits that conflict with one another. When this happens, you must instruct git how to [resolve the conflict](https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts).)
 
-**Syntax:** To update the local branch `master` with information from the remote branch `master`, first switch to `master` by running
+**Syntax:** To update the local branch `master` with information from the remote branch `master` in the remote repository named `origin`, first switch to `master` by running
 
 ```
 git switch master
