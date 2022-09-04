@@ -35,7 +35,19 @@ git fetch origin
 
 ## `git merge`
 
+`git merge` compares two branches and updates one of them with changes that the other one contains. This operation can be used to update one branch with information from any other branch, including remote branches and local branches. 
 
+**Syntax:** To update the local branch `master` with information from the local branch `hotfix`, first switch to `master` by running
+
+```
+git switch master
+```
+
+and then execute the merge by running
+
+```
+git merge hotfix
+```
 
 ## `git pull`
 
