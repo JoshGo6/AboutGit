@@ -6,6 +6,12 @@ Since each developer (and writer) contains a copy of the repo on their local mac
 
 ## Commits: the building blocks of git
 
+As mentioned previously, repos contains branches, which are different versions of the files in the repo. Git stores the information about branches in *commits*. When a user alters the files in a branch and then wants to save those changes in the git repo, the user *commits* those changes. This results in a commit, which contains the list of files changed, and the exact changes to those files since they were last committed. The changes from one commit to another is referred to as the *diff* between those two commits. (Git allows you to view the diff between any two commits in a repository.)
+
+Each commit is based on one or more previous commits. When a commit is based on a single commit, the latest commit updates with the latest changes the branch that contains the previous commit. When the commit is based on multiple commits, this is the result of two branches being [merged](#git-merge).
+
+While we often use branches, because they are usually easier to refer to than referring to commits, each branch is fundamentally a collection of ordered commits, since each commit is based off of one or more ancester commits. Git computes the diff from the very first commit in the branch to the current state of the branch -- the *tip* of the branch -- when you view or edit a branch. This diff includes the total changes in the branch to all of the files in the repo, including additions and deletions within files, and additions and deletions of entire files, too. 
+
 ## Basic operations
 
 While git provides many commands and options, you will use the following operations repeatedly:
