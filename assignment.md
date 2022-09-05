@@ -16,7 +16,7 @@ While we often use branches, because they are usually easier to refer to than re
 
 While git provides many commands and options, you will use the following operations repeatedly:
 
-- [`git push`](#git-push): Uploads changes from a local branch to a remote repo.
+- [`git push`](#git-push): Uploads changes from a local branch to an upstream branch.
 - [`git fetch`](#git-fetch): Downloads information from a remote repo about the current state of its branches.
 - [`git merge`](#git-merge): Inserts material from one branch into another branch.
 - [`git pull`](#git-pull): Performs `git fetch` and then performs a `git merge` from the upstream branch into your local branch.
