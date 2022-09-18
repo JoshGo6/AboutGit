@@ -1,4 +1,4 @@
-# An introduction to git
+# An Introduction to git
 
 In modern software development and documentation, the version control system *git* is most often used for source control. This system is based on two concepts: repositories and branches. A *repository*, also known as a *repo*, is a collection of files. A *branch* is a version of those files that can be edited independently of other versions of those files. A repo holds one or more branches. Often, though, it contains many branches, allowing different users to edit, delete, and add to different branches at the same time without overwriting other users' work.
 
