@@ -27,7 +27,7 @@ The following sections briefly describe each of these operations. For more detai
 
 ### `git push`
 
-`git push` uploads changes from your local branch to the upstream branch so that they are identical. Since the upstream branch is in the remote repo (which other users have access to), using `git push` shares your work with everyone who has access to the remote repo. Note that this operation requires your local branch to contain all of the commits that the remote branch contains *before* running `git push`, and will fail if this condition is not met. If the remote branch contains commits that your local branch does not yet contain, you have two options: (a) first run [`git pull`](#git-pull), or (b) first run [`git fetch`](#git-fetch) followed by [`git merge`](#git-merge). After doing (a) or (b), you can run `git push`.
+`git push` uploads changes from your local branch to its upstream branch so that they are identical. Since the upstream branch is in the remote repo (which other users have access to), using `git push` shares your work with everyone who has access to the remote repo. Note that this operation requires your local branch to contain all of the commits that the remote branch contains *before* running `git push`, and will fail if this condition is not met. If the remote branch contains commits that your local branch does not yet contain, you have two options: (a) first run [`git pull`](#git-pull), or (b) first run [`git fetch`](#git-fetch) followed by [`git merge`](#git-merge). After doing (a) or (b), you can run `git push`.
 
 **Syntax:** To upload changes from your local branch `hotfix` to the upstream branch `hotfix` in the remote repo named `origin`, run
 
@@ -49,7 +49,7 @@ git fetch origin
 
 `git merge` compares two branches and updates one of them with changes that the other one contains. This operation can be used to update one branch with information from any other branch, including upstream branches and local branches. 
 
-**Syntax:** To update the local branch `master` with changes in the upstream branch `hotfix`, first switch to `master` by running
+**Syntax:** To update the local branch `master` with changes in the local branch `hotfix`, first switch to `master` by running
 
 ```
 git switch master
@@ -65,7 +65,7 @@ git merge hotfix
 
 Frequently you will want to perform a a [`git fetch`](#git-fetch) immediately followed by a [`git merge`](#git-merge), which is exactly what `git pull` does. The advange of first performing a `git fetch` and *then* performing a `git merge` is that you can run `git status` between those two operations to determine whether or not running `git merge` will result in a merge conflict. (A merge conflict occurs during `git merge` when git cannot automatically integrate the changes introduced by the merge because the two branches contain commits that conflict with one another. When a merge conflict occurs, you must instruct git how to [resolve the conflict](https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts).)
 
-**Syntax:** To update the local branch `master` with information from the remote branch `master` in the remote repository named `origin`, first switch to `master` by running
+**Syntax:** To update the local branch `master` with information from the upstream branch `master` in the remote repo named `origin`, first switch to `master` by running
 
 ```
 git switch master
