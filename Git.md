@@ -83,7 +83,7 @@ git pull origin master
 
 ## Further information
 
-This introduction to git covered several basic git commands, but there are many others, as well as many options for each command. By leveraging additional commands and options, git becomes not just a version control system but a set of tools that assists in your work. For instance, git allows you to re-order your work so that it is more understandable to you and your peers. The system also allows you to do work that you need temporarily -- for instance, importing test files -- and later undo that work by undoing a commit. To fully understand git, it's best if you first take the time to understand the [three trees](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified#the-three-trees). Once you have a solid understanding of that topic, you may be interested in learning about these additional git commands:
+This introduction to Git covered several basic Git commands, but there are many others, as well as many options for each command. By leveraging additional commands and options, Git becomes not just a version control system but a set of tools that assists in your work. For instance, git allows you to re-order your work so that it is more understandable to you and your peers. The system also allows you to do work that you need temporarily -- for instance, importing test files -- and later undo that work by undoing a commit. To fully understand Git, it's best if you first take the time to understand the [three trees](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified#the-three-trees). Once you have a solid understanding of that topic, you may be interested in learning about these additional Git commands:
 
 - `git diff`
 - `git switch`
@@ -93,4 +93,4 @@ This introduction to git covered several basic git commands, but there are many 
 - `git reset`
 - `git rebase`
 
-You can find information on all of these commands as well as all other git commands, at [https://git-scm.com/doc](https://git-scm.com/doc). 
+You can find information on all of these commands as well as all other Git commands, at [https://git-scm.com/doc](https://git-scm.com/doc). 
