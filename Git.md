@@ -1,8 +1,10 @@
-# An Introduction to git
+# Josh's introduction to Git
 
-In modern software development and documentation, the version control system *git* is most often used for source control. This system is based on two concepts: repositories and branches. A *repository*, also known as a *repo*, is a collection of files. A *branch* is a version of those files that can be edited independently of other versions of those files. A repo holds one or more branches. Often, though, it contains many branches, allowing different users to edit, delete, and add to different branches at the same time without overwriting other users' work.
+In modern software development and documentation, the version control system that is most often used for source control is Git. This system is based on two concepts: repositories and branches. A *repository*, also known as a *repo*, is a collection of files in a directory and its subdirectories, recursively.
 
-Since each developer (and writer) contains a copy of the repo on their local machine (a *local repo*), they edit the *local branches* in these repos without requiring network access. When a developer is ready to share their work with other users, they upload their local branch to a repo accessible by the other users, the *remote repo*, which contains *upstream branches*. Developers frequently download and upload work from the remote repo. In this way, many different developers can work independently while sharing their work when it is complete.
+A *branch* is a version of the repo files that can be edited completely independently of other versions of those files. A repo holds one or more branches. Often, though, it contains many branches, allowing different users to edit, delete, and add to different versions of the files in the repo at the same time, without overwriting other users’ work.
+
+Since each developer (and writer) contains a complete copy of the repo on their local machine (a *local repo*), they edit the *local branches* in these repos without requiring network access. When a developer is ready to share their work with other users, they upload their local branch to a repo accessible by the other users, the *remote repo* Developers frequently download and upload work from the remote repo. In this way, different developers can work independently, sharing their work when it is ready to be used by others.
 
 ## Commits: the building blocks of git
 
