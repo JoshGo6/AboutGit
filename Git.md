@@ -18,16 +18,17 @@ Each commit is based on one or more previous commits. When a commit is based on 
 
 While we often use branches, because they are usually easier to refer to than referring to individual commits, each branch is fundamentally a collection of ordered commits, where each commit is based off of either one or two ancestor commits. Git computes the diff from the very first commit in the branch to the the latest commit in the branch, by adding up the individual diffs (that is, changes) from each commit, from the first to the last. Git uses this information to show you the latest version of your files, but this approach also allows for tremendously powerful workflows, including retrieving any previous version of any file in the repo -- even files that have been deleted years ago.
 
+
 ## Basic operations
 
 While git provides many commands and options, you will use the following operations repeatedly:
 
-- [`git push`](#git-push): Uploads changes from a local branch to an upstream branch.
+- [`git push`](#git-push): Uploads changes from a local branch to its corresponding branch on the remote repo, also referred to as an *upstream branch*. 
 - [`git fetch`](#git-fetch): Downloads information from a remote repo about the current state of its branches.
-- [`git merge`](#git-merge): Inserts material from one branch into another branch.
+- [`git merge`](#git-merge): Merges edits from one branch into another branch.
 - [`git pull`](#git-pull): Performs `git fetch` and then performs a `git merge` from the upstream branch into your local branch.
 
-The following sections briefly describe each of these operations. For more detailed options for each of these operations, please see the [official git documentation online](https://git-scm.com/doc). Also, note that in the following sections, we assume that you have set up your local branches to track upstream branches. For more information on setting up tracking branches, see [this page](https://www.git-tower.com/learn/git/faq/track-remote-upstream-branch/).
+The following sections briefly describe each of these operations. For more detailed options on each of these operations, see the [official git documentation online](https://git-scm.com/doc). Also, note that in the following sections, we assume that you have [cloned the remote repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository), have set up your local branches to [track upstream branches](https://www.git-tower.com/learn/git/faq/track-remote-upstream-branch/), and are comfortable [switching between branches](https://git-scm.com/docs/git-switch). While my tutorial presents a brief overview of the Git system, it is not meant to be a complete set of lessons in all things Git.
 
 ### `git push`
 
