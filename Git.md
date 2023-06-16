@@ -1,4 +1,4 @@
-# Josh's introduction to Git
+# Josh's Introduction to Git
 
 In modern software development and documentation, the version control system that is most often used for source control is Git. This system is based on two concepts: repositories and branches. A *repository*, also known as a *repo*, is a collection of files in a directory and its subdirectories, recursively.
 
