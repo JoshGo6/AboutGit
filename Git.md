@@ -4,7 +4,7 @@ In modern software development and documentation, the version control system tha
 
 A *branch* is a version of the repo files that can be edited completely independently of other versions of those files. A repo holds one or more branches. Often, though, it contains many branches, allowing different users to edit, delete, and add to different versions of the files in the repo at the same time, without overwriting other users’ work.
 
-Since each developer (and writer) contains a complete copy of the repo on their local machine (a *local repo*), they edit the *local branches* in these repos without requiring network access. When a developer is ready to share their work with other users, they upload their local branch to a repo accessible by the other users, the *remote repo* Developers frequently download and upload work from the remote repo. In this way, different developers can work independently, sharing their work when it is ready to be used by others.
+Since each developer (and writer) contains a complete copy of the repo on their local machine (a *local repo*), they edit the *local branches* in these repos without requiring network access. When a developer is ready to share their work with other users, they upload their local branch to a repo accessible by the other users, the *remote repo*. Developers frequently download and upload work from the remote repo. In this way, different developers can work independently, sharing their work when it is ready to be used by others.
 
 ## Commits: the building blocks of git
 
