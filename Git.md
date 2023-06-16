@@ -16,6 +16,8 @@ The changes from one commit to another are collectively referred to as the *diff
 
 Each commit is based on one or more previous commits. When a commit is based on a single commit, the latest commit updates a branch that contains the previous commit. When the commit is based on multiple commits, this is usually the result of two branches [merging](#git-merge). (More than two branches can be merged at once, but this is less typically done. For this discussion, we assume that all commits either result from one previous commit or are the result of two commits merging together.)
 
+While we often use branches, because they are usually easier to refer to than referring to individual commits, each branch is fundamentally a collection of ordered commits, where each commit is based off of either one or two ancestor commits. Git computes the diff from the very first commit in the branch to the the latest commit in the branch, by adding up the individual diffs (that is, changes) from each commit, from the first to the last. Git uses this information to show you the latest version of your files, but this approach also allows for tremendously powerful workflows, including retrieving any previous version of any file in the repo -- even files that have been deleted years ago.
+
 ## Basic operations
 
 While git provides many commands and options, you will use the following operations repeatedly:
