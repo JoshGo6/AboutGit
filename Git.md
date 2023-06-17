@@ -21,7 +21,7 @@ While we often use branches, because they are usually easier to refer to than re
 
 ## Basic operations
 
-While git provides many commands and options, you will use the following operations repeatedly:
+While Git provides many commands and options, you will use the following operations repeatedly:
 
 - [`git push`](#git-push): Uploads changes from a local branch to its corresponding branch on the remote repo, also referred to as an *upstream branch*. 
 - [`git fetch`](#git-fetch): Downloads information from a remote repo about the current state of its branches.
