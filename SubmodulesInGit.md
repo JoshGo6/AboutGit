@@ -36,7 +36,7 @@ Receiving objects: 100% (45/45), 9.23 KiB | 858.00 KiB/s, done.
 Resolving deltas: 100% (14/14), done.
 ```
 
-Next, [Commit new submodule in parent repo](#commit-new-submodule-in-parent-repo).
+Next, [commit the new submodule in the parent repo](#commit-new-submodule-in-parent-repo).
 
 ## Commit new submodule in parent repo
 
@@ -121,7 +121,7 @@ To update all submodules with the latest changes to the remote repos, run the fo
 git submodule update --remote
 ```
 
-Now [Add and commit changes](#add-and-commit-changes).
+Now [add and commit the changes](#add-and-commit-changes).
 
 ### Update one submodule from default branch
 
@@ -131,7 +131,7 @@ To update just one submodule, run:
 git submodule update --remote <name of submodule>
 ```
 
-If you don't know the name of the submodule, see the `.gitmodules` file. Now [Add and commit changes](#add-and-commit-changes).
+If you don't know the name of the submodule, see the `.gitmodules` file. Now [add and commit the changes](#add-and-commit-changes).
 
 ### Update one submodule from specified branch
 
@@ -169,7 +169,7 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-Now [Add and commit changes](#add-and-commit-changes).
+Now [add and commit the changes](#add-and-commit-changes).
 
 ### Configure branch and merge behavior for submodule updates
 
