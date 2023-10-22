@@ -1,6 +1,6 @@
 # Submodules in Git
 
-When one repository requires files in another repository, access the required files by using Git's submodule capabilities. When you create a submodule in a Git repo, the submodule is actually a separate repo, so you have a *repo inside a repo*. You would use this functionality if you have one project that references another project -- for instance, multiple projects which utilize the same CSS or the same code for one module. This topic covers:
+When one repository requires files in another repository, access the required files by using Git's submodule capabilities. When you create a submodule in a Git repo, the submodule is actually a separate repo, so you have a *repo inside a repo*. You would use this functionality if you have one project that references another project -- for instance, multiple projects which utilize the same CSS or the same code from one module. This topic covers:
 
 - [Add a submodule to an existing repo](#add-a-submodule-to-an-existing-repo)
 - [Commit new submodule in parent repo](#commit-new-submodule-in-parent-repo)
