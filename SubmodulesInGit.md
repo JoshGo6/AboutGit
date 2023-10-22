@@ -5,7 +5,7 @@ When one repository requires files in another repository, access the required fi
 - [Add a submodule to an existing repo](#add-a-submodule-to-an-existing-repo)
 - [Commit new submodule in parent repo](#commit-new-submodule-in-parent-repo)
 - [Clone a repo containing a submodule](#clone-a-repo-containing-a-submodule)
-    - [Pulling a submodule during a clone](#pulling-a-submodule-during-a-clone)
+    - [Pull a submodule during a clone](#pull-a-submodule-during-a-clone)
     - [Pull a submodule after a clone](#pull-a-submodule-after-a-clone)
 - [Update submodule with upstream changes](#update-submodule-with-upstream-changes)
     - [Update all submodules from default branches](#update-all-submodules-from-default-branches)
@@ -76,9 +76,9 @@ Now the files in the submodule are ready for use.
 
 ## Clone a repo containing a submodule
 
-When you clone a repo containing a submodule, the submodule in the parent repo is not by default available for use after cloning. To get the files, you must run additional commands. (See [Pull a submodule after a clone](#pull-a-submodule-after-a-clone).) Avoid this issue by passing arguments to `git clone`. (See [Pulling a submodule during a clone](#pulling-a-submodule-during-a-clone).)
+When you clone a repo containing a submodule, the submodule in the parent repo is not by default available for use after cloning. To get the files, you must run additional commands. (See [Pull a submodule after a clone](#pull-a-submodule-after-a-clone).) Avoid this issue by passing arguments to `git clone`. (See [Pull a submodule during a clone](#pull-a-submodule-during-a-clone).)
 
-## Pulling a submodule during a clone
+## Pull a submodule during a clone
 
 The simplest way of using a submodule referenced in a remote repo is to clone it along with the parent repo, so that the submodule is immediately available.
 
