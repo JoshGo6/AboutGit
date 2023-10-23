@@ -221,7 +221,7 @@ For members of the team who are pulling using GitHub desktop or some other GUI u
 git submodule update --recursive
 ```
 
-No additional operations or commits are needed at this point. This just updates the working directory of the submodules. The commits are already in the parent project. I need to instruct tech. writers to run this command by opening a terminal window from the **Repository** menu. I can automate this for tech. writers by authoring a post-merge [[Git Hook]] and telling them where to install it.
+No additional operations or commits are needed at this point. This just updates the working directory of the submodules. The commits are already in the parent project. I need to instruct tech. writers to run this command by opening a terminal window from the **Repository** menu. I can automate this for tech. writers by authoring a post-merge Git hook and telling them where to install it.
 
 ## Edit a submodule
 
