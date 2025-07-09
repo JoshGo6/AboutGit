@@ -1,0 +1,515 @@
+openapi: 3.0.0
+info:
+  title: Josh's Demonstration API
+  description: |-
+    **NOTE: This API is non-functional. I created it to demonstrate API documentation.**
+    This demonstration API manages information about users who contribute documentation to a knowledge base. It is used for:
+
+    - Retrieving information about users who contribute to a knowledge base.
+    - Registering new users to contribute documentation to the knowledge base.
+    - Removing documentation contributors from the list of users.
+    - Updating the personal information of existing documentation contributors.
+
+    **For those new to APIs:**
+
+     APIs allow different systems to transmit information with one another using agreed upon, structured language without one system needing to know the finer details of how the other system stores or uses the information. You can think of APIs as an agreed upon shorthand allowing two different systems to communicate with one another.
+     
+     This concept may sound foreign at first, but we use a version of APIs all the time when using equipment. When you drive a car, you instruct the car how to move, using four devices -- the steering wheel, brake, gas, and gear shifter. Using these four simple inputs, you successfully communicate to the car how you want it to operate without your having to know the details of the steering column, pistons, brake assembly, engine, or transmission in your car. You can think of the four devices collectively as an API that allows you to communicate with the car.
+     
+     This page contains API documentation. API documentation describes resources (for example, **Retrieve information**), endpoints (for example, **/information**,) and methods (for example, **GET**). *Resources* are broad categories of functionality, an *endpoint* is a relative URL path for accomplishing a specific task, and a *method* is an operation for creating, reading, updating, or deleting information. 
+     
+    **Select a colored button to learn more about that endpoint and method.**
+  contact:
+    name: Josh Goldstein
+    url: ''
+    email: JoshGoldstein@JoshGoldstein.org
+  version: 1.2.0
+servers:
+  - url: 'https://api.joshgoldstein.org/prod'
+    description: Production API server
+  - url: 'https://api.joshgoldstein.org/dev'
+    description: Dev API server
+security:
+  - BasicAuth: []
+tags:
+  - name: Retrieve information
+    description: Obtain information about documentation contributors
+  - name: Register users
+    description: Register new documentation contributors
+  - name: Manage users
+    description: Manage documentation contributors and their user information
+paths:
+  /information:
+    get:
+      tags:
+        - Retrieve information
+      summary: Retrieve list of users
+      description: |
+        Retrieve a list of documentation contributors, optionally filtered by
+        the following query parameters:
+        - **id**.
+        - **contributionLevel**.
+      operationId: listUsers
+      parameters:
+        - name: id
+          in: query
+          description: |
+            id of the user: \
+            Min val.: 0. \
+            Max val.: 999.
+          required: false
+          style: form
+          explode: true
+          schema:
+            maximum: 999
+            minimum: 0
+            type: integer
+            example: 123
+        - name: conributionLevel
+          in: query
+          description: |
+            How frequently an author contributes documentation. Allowed values:
+            - **infrequent**: Contributes 1-2 articles per year.
+            - **occasional**: Contributes 3-4 articles per year.
+            - **frequent**: Contributes 5 or more articles per year.
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: frequent
+            enum:
+              - infrequent
+              - occasional
+              - frequent
+      responses:
+        '200':
+          description: A list of users.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: User not found.
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/NotFoundSimpleError'
+        '500':
+          description: Server error. Please try again later.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+      security: []
+  /register:
+    post:
+      tags:
+        - Register users
+      summary: Register new user
+      description: |
+        Register a new user by providing the following information:
+        - **name**.
+        - **email**.
+        - **address**.
+        - **city**.
+        - **zip**.
+      operationId: registerUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/register_body'
+        required: true
+      responses:
+        '201':
+          description: New user created successfully.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: New user created succesfully.
+        '400':
+          description: Failed to create new user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserNotCreated'
+        '500':
+          description: Server error. Please try again later.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+      security:
+        - apiKeyAuth: []
+  '/User/{id-required}':
+    delete:
+      tags:
+        - Manage users
+      summary: Delete user
+      description: Delete a user from the list of registered technical writers.
+      operationId: deleteUser
+      parameters:
+        - $ref: '#/components/parameters/id-required'
+      responses:
+        '202':
+          description: User deleted.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: User deleted.
+        '404':
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundSimpleError'
+        '500':
+          description: Server error. Please try again later.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+      security:
+        - apiKeyAuth: []
+    patch:
+      tags:
+        - Manage users
+      summary: Update user information
+      description: |
+        Update any of the following user information:
+        - **name**.
+        - **email**.
+        - **address**.
+        - **city**.
+        - **zip**.
+      operationId: patchUser
+      parameters:
+        - $ref: '#/components/parameters/id-required'
+        - name: name
+          in: query
+          description: Name of user.
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: Josh G.
+        - name: email
+          in: query
+          description: Email address of user.
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: josh.goldstein@awesome-tech-writer.com
+        - name: address
+          in: query
+          description: Street address of the user.
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: 1234 Writer St.
+        - name: city
+          in: query
+          description: City of the user.
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: 'Writerville, VA'
+        - name: zip
+          in: query
+          description: Zip code of the user.
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: integer
+            example: '20193'
+      responses:
+        '200':
+          description: User updated.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: User updated.
+        '404':
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundSimpleError'
+        '500':
+          description: Server error. Please try again later.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+      security:
+        - apiKeyAuth: []
+  '/User/{id-required}/deactivate':
+    patch:
+      tags:
+        - Manage users
+      summary: Deactivate user
+      description: Deactivate user from the list of technical writers currently contributing content.
+      operationId: deactivateUser
+      parameters:
+        - $ref: '#/components/parameters/id-required'
+      responses:
+        '200':
+          description: User deactivated.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: User deactivated.
+        '404':
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundSimpleError'
+        '500':
+          description: Server error. Please try again later.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+      security:
+        - apiKeyAuth: []
+  '/User/{id-required}/activate':
+    patch:
+      tags:
+        - Manage users
+      summary: Activate user
+      description: Reactivate user who was previously deactivated.
+      operationId: activateUser
+      responses:
+        '200':
+          description: User is now active again.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: User is now active again.
+        '404':
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundSimpleError'
+        '500':
+          description: Server error. Please try again later.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerError'
+      security:
+        - apiKeyAuth: []
+    parameters:
+      - $ref: '#/components/parameters/id-required'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User_users'
+        '':
+          type: string
+          x-stoplight:
+            id: adahsk2zul8uf
+    NotFoundSimpleError:
+      type: string
+      example: User 123 not found.
+    ServerError:
+      type: object
+      properties:
+        errornum:
+          type: integer
+          example: 500
+        errortext:
+          type: string
+          example: Josh's server is busy.
+    UserNotCreated:
+      type: object
+      properties:
+        message:
+          type: string
+          example: 'You are missing the following parameters:'
+        missingParameters:
+          type: array
+          items:
+            type: string
+            example: email
+    register_body:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Josh Goldstein
+        email:
+          type: string
+          example: JoshGoldstein@JoshGoldstein.org
+        address:
+          type: string
+          example: 1234 Writer St.
+        city:
+          type: string
+          example: 'Writerville, VA'
+        zip:
+          type: integer
+          example: '20193'
+    User_users:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 123
+        name:
+          type: string
+          example: Josh G.
+        email:
+          type: string
+          example: josh.goldstein@awesome-tech-writer.com
+        contributionLevel:
+          type: string
+          example: frequent
+          enum:
+            - infrequent
+            - occasional
+            - frequent
+        numberOfArticlesWritten:
+          maximum: 10000
+          minimum: 1
+          type: integer
+          example: 7
+  parameters:
+    id-required:
+      name: id-required
+      in: path
+      description: |
+        id of the user: \
+        Min val.: 0. \
+        Max val.: 999.
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: integer
+        example: 123
+        minimum: 0
+        maximum: 999
+    name:
+      name: name
+      in: query
+      description: Name of user.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: Josh G.
+    email:
+      name: email
+      in: query
+      description: Email address of user.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: josh.goldstein@awesome-tech-writer.com
+    address:
+      name: address
+      in: query
+      description: Street address of the user.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 1234 Writer St.
+    city:
+      name: city
+      in: query
+      description: City of the user.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'Writerville, VA'
+    zip:
+      name: zip
+      in: query
+      description: Zip code of the user.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: integer
+        example: '20193'
+    contributionLevel:
+      name: conributionLevel
+      in: query
+      description: |
+        How frequently an author contributes documentation. Allowed values:
+        - **infrequent**: Contributes 1-2 articles per year.
+        - **occasional**: Contributes 3-4 articles per year.
+        - **frequent**: Contributes 5 or more articles per year.
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: frequent
+        enum:
+          - infrequent
+          - occasional
+          - frequent
+    numberOfArticlesWritten:
+      name: numberOfArticlesWritten
+      in: query
+      description: How many articles the user has written.
+      required: false
+      style: form
+      explode: true
+      schema:
+        maximum: 10000
+        minimum: 1
+        type: integer
+        example: 7
+    id-optional:
+      name: id-optional
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 999
+        example: 123
+        default: 123
+      description: id of the tech. writer.
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      name: X-API-key
+      in: header
+    BasicAuth:
+      type: http
+      scheme: basic
